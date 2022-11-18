@@ -1,5 +1,7 @@
 
 #include <stdio.h>
+#include "headers/image.h"
+#include "headers/histogram.h"
 
 int main()
 {
