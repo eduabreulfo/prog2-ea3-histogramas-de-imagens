@@ -2,6 +2,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef enum{
   FLOAT = 0,
@@ -10,11 +11,8 @@ typedef enum{
 
 typedef struct image Image;
 
-// inicializa uma imagem em branco na memoria
-Image *image_create();
-
-// le um arquivo .bin e retorna um ponteiro de imagem
-Image *image_read(FILE *fp);
+// le um arquivo em path e retorna um ponteiro de imagem
+Image *image_read(char *path);
 
 // libera a memoria da imagem e de seus componentes
-void image_destroy(Image *img);
+void image_destroy(Image *image);
