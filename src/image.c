@@ -30,6 +30,11 @@ Image *image_read(char *path)
     return image;
 }
 
+int image_size(Image *image)
+{
+    return (image->n_rows)*(image->n_columns);
+}
+
 void image_destroy(Image *image)
 {
     free(image->pixels);
