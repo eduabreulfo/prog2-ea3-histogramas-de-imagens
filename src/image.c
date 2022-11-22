@@ -28,14 +28,17 @@ Image *image_read(char *path)
     image->pixels = calloc((image->n_rows)*(image->n_columns), N_BYTES);
 
     fread(image->pixels, N_BYTES, (image->n_rows)*(image->n_columns), fp);
-
     if(image->type == FLOAT)
     {
+        void *new_pointer = calloc((image->n_rows)*(image->n_columns), N_BYTES);
+
         int i=0;
         for(i=0;i<image_size(image);i++)
         {
-            *(int*)(image->pixels + i*sizeof(int)) = (*(int*)(image->pixels + i*sizeof(int)))*255;
+            ((int*)(new_pointer))[i] = (((float*)(image->pixels))[i]*255);
         }
+        free(image->pixels);
+        image->pixels = new_pointer;
         image->type = INT;
     }
 
