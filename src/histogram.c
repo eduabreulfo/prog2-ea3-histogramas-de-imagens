@@ -22,7 +22,6 @@ Histogram *histogram_compute(Image *image, int n_buckets)
   histogram->n_buckets = n_buckets;
 
   histogram->tallies = (int*)calloc(n_buckets, sizeof(int));
-  256/(float)histogram->n_buckets;
 
   histogram->size = (int)(ceil(256/(float)histogram->n_buckets));
 
