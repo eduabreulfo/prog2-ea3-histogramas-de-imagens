@@ -29,7 +29,7 @@ Image *image_read(char *path)
     if(image->type == FLOAT){
         int i=0;
         for(i=0;i<image_size(image);i++){
-            *(int*)(image->pixels + i*4) = ((*(int*)(image->pixels + i*4))*256)-1;
+            *(int*)(image->pixels + i*4) = ((*(int*)(image->pixels + i*4))*255);
         }
         image->type = INT;
     }
