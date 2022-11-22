@@ -5,7 +5,7 @@ HEADER	= headers/image.h headers/histogram.h
 OUT	= main
 CC	 = gcc
 FLAGS	 = -g -c -Wall
-LFLAGS	 =
+LFLAGS	 = -lm
 # -g option enables debugging mode 
 # -c flag generates object code for separate files
 
