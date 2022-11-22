@@ -26,6 +26,14 @@ Image *image_read(char *path)
     image->pixels = calloc((image->n_rows)*(image->n_columns), 4);
     fread(image->pixels, 4, (image->n_rows)*(image->n_columns), fp);
 
+    if(image->type == FLOAT){
+        int i=0;
+        for(i=0;i<image_size(image);i++){
+            *(int*)(image->pixels + i*4) = ((*(int*)(image->pixels + i*4))*256)-1;
+        }
+        image->type = INT;
+    }
+
     fclose(fp);
     return image;
 }
